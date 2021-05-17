@@ -2,11 +2,29 @@ FROM quay.io/pypa/manylinux2010_x86_64
 
 # Install development tools
 RUN yum groupinstall -y 'Development Tools' \
-    && yum install -y wget yum-utils libX*
+    && yum install -y wget yum-utils libX* gcc openssl-devel bzip2-devel
 
-# Install nodejs 10
-RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash - \
-    && yum install -y nodejs
+# Install Python2.7
+RUN wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tgz \
+    && tar -xf Python-2.7.18.tgz \
+    && cd Python-2.7.18 \
+    && ./configure \
+    && make -j4 \
+    && make install \
+    && cd .. \
+    && rm -rf Python-2.7.18*
+
+# Install nodejs 12
+RUN export LDFLAGS=-lrt \
+    && export CPPFLAGS=-D__STDC_FORMAT_MACROS \
+    && wget https://nodejs.org/dist/v12.13.0/node-v12.13.0.tar.gz \
+    && tar -xf node-v12.13.0.tar.gz \
+    && cd node-v12.13.0 \
+    && ./configure \
+    && make -j4 \
+    && make install \
+    && cd .. \
+    && rm -rf node-v12.12.0*
 
 # Install cuda 10.2
 RUN yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel6/x86_64/cuda-rhel6.repo \
