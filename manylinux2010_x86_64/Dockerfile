@@ -16,15 +16,14 @@ RUN wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tgz \
 
 # Install nodejs 12
 RUN export LDFLAGS=-lrt \
-    && export CPPFLAGS=-D__STDC_FORMAT_MACROS \
-    && wget https://nodejs.org/dist/v12.13.0/node-v12.13.0.tar.gz \
-    && tar -xf node-v12.13.0.tar.gz \
-    && cd node-v12.13.0 \
-    && ./configure \
-    && make -j4 \
+    && wget https://nodejs.org/dist/v12.16.0/node-v12.16.0.tar.gz \
+    && tar -xf node-v12.16.0.tar.gz \
+    && cd node-v12.16.0 \
+    && ./configure --prefix=/usr \
+    && make -j8 \
     && make install \
     && cd .. \
-    && rm -rf node-v12.12.0*
+    && rm -rf node-v12.16.0*
 
 # Install cuda 10.2
 RUN yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel6/x86_64/cuda-rhel6.repo \
