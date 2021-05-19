@@ -12,7 +12,10 @@ RUN wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tgz \
     && make -j4 \
     && make install \
     && cd .. \
-    && rm -rf Python-2.7.18*
+    && wget https://bootstrap.pypa.io/pip/2.7/get-pip.py \
+    && python2.7 get-pip.py \
+    && rm -rf Python-2.7.18* \
+    && rm get-pip.py
 
 # Install nodejs 12
 RUN export LDFLAGS=-lrt \
