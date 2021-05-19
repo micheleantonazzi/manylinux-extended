@@ -6,6 +6,7 @@ The extended images are *manylinux2010_x86_64* and *manylinux2014_x86_64*, you c
 ## Manylinux2010_x86_64_extended
 This docker image uses *manylinux2010_x84_64* as base image. In addition, the following packages are installed:
 * The *Development Tools* packages
+* Python2.7  
 * Nodejs 12
 * CUDA 10.2
 * wget, yum-utils, libX*, openssl-devel, bzip2-devel packages
@@ -17,12 +18,13 @@ The environment variables (*PATH* and *LD_LIBRARY_PATH*) already include:
 
 You can use this docker image typing:
 ```bash
-sudo docker run -i -t -v `pwd` micheleantonazzi/manylinux-extended:manylinux2010_x86_64_extended_0.5.1 /bin/bash
+sudo docker run -i -t -v `pwd` micheleantonazzi/manylinux-extended:manylinux2010_x86_64_extended_0.6.1 /bin/bash
 ```  
 
 ## Manylinux2014_x86_64_extended
 This docker image uses *manylinux2014_x84_64* as base image. In addition, the following packages are installed:
 * The *Development Tools* packages
+* Python2.7
 * Nodejs 14
 * CUDA 11.0
 * wget, yum-utils, libX* packages
@@ -34,5 +36,5 @@ The environment variables (*PATH* and *LD_LIBRARY_PATH*) already include:
 
 You can use this docker image typing:
 ```bash
-sudo docker run -i -t -v `pwd` micheleantonazzi/manylinux-extended:manylinux2014_x86_64_extended_0.5.1 /bin/bash
+sudo docker run -i -t -v `pwd` micheleantonazzi/manylinux-extended:manylinux2014_x86_64_extended_0.6.1 /bin/bash
 ```  
