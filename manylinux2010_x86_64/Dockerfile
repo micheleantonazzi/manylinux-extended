@@ -8,7 +8,7 @@ RUN yum groupinstall -y 'Development Tools' \
 RUN wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tgz \
     && tar -xf Python-2.7.18.tgz \
     && cd Python-2.7.18 \
-    && ./configure \
+    && ./configure  --enable-unicode=ucs4 \
     && make -j4 \
     && make install \
     && cd .. \
