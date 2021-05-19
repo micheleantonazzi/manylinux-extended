@@ -18,7 +18,7 @@ The environment variables (*PATH* and *LD_LIBRARY_PATH*) already include:
 
 You can use this docker image typing:
 ```bash
-sudo docker run -i -t -v `pwd` micheleantonazzi/manylinux-extended:manylinux2010_x86_64_extended_0.7.0 /bin/bash
+sudo docker run -i -t -v `pwd` micheleantonazzi/manylinux-extended:manylinux2010_x86_64_extended_0.7.1 /bin/bash
 ```  
 
 ## Manylinux2014_x86_64_extended
@@ -36,5 +36,5 @@ The environment variables (*PATH* and *LD_LIBRARY_PATH*) already include:
 
 You can use this docker image typing:
 ```bash
-sudo docker run -i -t -v `pwd` micheleantonazzi/manylinux-extended:manylinux2014_x86_64_extended_0.7.0 /bin/bash
+sudo docker run -i -t -v `pwd` micheleantonazzi/manylinux-extended:manylinux2014_x86_64_extended_0.7.1 /bin/bash
 ```  
